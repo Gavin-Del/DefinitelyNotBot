@@ -6,15 +6,21 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.channel.send('PONG!');
-  	}
-});
+    if(message.content.startsWith(">ping")) {
+            message.channel.send(new Date().getTime() - message.createdTimestamp + " ms :ping_pong: **Pong** ");        
+    }
+}
 
 client.on('message', message => {
-    if (message.content === 'bing') {
-    	message.reply('BONG!');
+    if (message.content === '>bing') {
+    	message.reply('**Bong**');
   	}
+
+client.on('message', message => {
+    if (message.content === '>avatar') {
+        message.reply(message.author.avatarURL);
+    }  
+
 });
 
 // THIS  MUST  BE  THIS  WAY
